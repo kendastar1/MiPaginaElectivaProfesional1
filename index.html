@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Electiva Profesional I: Modelos de Transformación Empresarial. Universidad Simón Bolívar.">
+    <meta name="keywords" content="transformación empresarial, transformación digital, digitalización, estrategia empresarial, modelos de negocio digital">
+    <title>Electiva Profesional I</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-strip"></div>
+        <div class="nav-container">
+            <a href="https://www.unisimon.edu.co/" class="logo" aria-label="Universidad Simón Bolívar">
+                <img src="images/logo-usb.png" alt="Universidad Simón Bolívar">
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#caracteristicas">Resumen</a></li>
+                <li><a href="#beneficios">Metodologías</a></li>
+                <li><a href="#como-funciona">Objetivos</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dd-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="ddTransf" data-children="#integracion,#para-empresas,#conceptos">Transformación <svg class="dd-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+                    <ul class="nav-dd-menu" id="ddTransf">
+                        <li><a href="#integracion">¿Qué es la transformación empresarial?</a></li>
+                        <li><a href="#para-empresas">¿Por qué se transforman las empresas?</a></li>
+                        <li><a href="#conceptos">Transformación digital vs. Digitalización</a></li>
+                    </ul>
+                </li>
+                <li><a href="#estrategia">Estrategia</a></li>
+                <li><a href="#modelos-negocio">Modelos</a></li>
+                <li><a href="#desarrolladores">Desarrolladores</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <div class="nav-stripe" aria-hidden="true"></div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#inicio" class="active">Inicio</a>
+            <a href="#caracteristicas">Resumen</a>
+            <a href="#beneficios">Metodologías</a>
+            <a href="#como-funciona">Objetivos</a>
+            <div class="mm-group">
+                <button type="button" class="mm-toggle" aria-expanded="false" aria-controls="mmSub" data-children="#integracion,#para-empresas,#conceptos">Transformación <svg class="dd-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+                <div class="mm-sub" id="mmSub">
+                    <a href="#integracion">¿Qué es la transformación empresarial?</a>
+                    <a href="#para-empresas">¿Por qué se transforman las empresas?</a>
+                    <a href="#conceptos">Transformación digital vs. Digitalización</a>
+                </div>
+            </div>
+            <a href="#estrategia">Estrategia</a>
+            <a href="#modelos-negocio">Modelos</a>
+            <a href="#desarrolladores">Desarrolladores</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-triangle"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    ELECTIVA PROFESIONAL I
+                    <span class="typing-text" id="typingText"></span>
+                </h1>
+                <p class="hero-subtitle">En Electiva Profesional I conoceremos cómo las empresas pueden mejorar y cambiar su forma de trabajar mediante la tecnología. Aprenderemos sobre la transformación empresarial, la digitalización y las nuevas estrategias que ayudan a las organizaciones a adaptarse a los cambios, mejorar sus procesos y crecer en el mundo actual.</p>
+                
+                <div class="hero-buttons">
+                    <a href="documentos/documento.pdf" download class="btn-white" id="heroDownload">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v11m0 0l-4-4m4 4l4-4"/></svg>
+                        Descargar documento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-cards" aria-label="Accesos rápidos">
+        <div class="quick-cards-box">
+            <div class="quick-cards-grid">
+                <a href="#caracteristicas" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <h3>Resumen</h3>
+                    <p>Conoce de qué trata la asignatura y qué vas a aprender.</p>
+                </a>
+                <a href="#beneficios" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <h3>Metodologías</h3>
+                    <p>Cómo se aprende: actividades, lecturas y ejercicios prácticos.</p>
+                </a>
+                <a href="#como-funciona" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H4.99c-1.11 0-1.98.9-1.98 2L3 19c0 1.1.88 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 12h-4c0 1.66-1.35 3-3 3s-3-1.34-3-3H4.99V5H19v10zm-3-5h-2V7h-4v3H8l4 4 4-4z"/></svg>
+                    <h3>Objetivos</h3>
+                    <p>Los objetivos de aprendizaje que guían la electiva.</p>
+                </a>
+                <a href="#integracion" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                    <h3>Transformación empresarial</h3>
+                    <p>Qué es y cómo cambian las organizaciones en sus dimensiones clave.</p>
+                </a>
+                <a href="#estrategia" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                    <h3>Estrategia</h3>
+                    <p>Estrategia empresarial y capacidades digitales.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="caracteristicas">
+        <div class="container">
+            <div class="svc-showcase">
+                <div class="svc-intro reveal reveal-left">
+                    <span class="svc-eyebrow">Introducción</span>
+                    <h2>Resumen de la <span class="svc-green">asignatura</span></h2>
+                    <p>La presentación de <strong>Electiva Profesional I</strong> aborda los <strong>Modelos de Transformación Empresarial</strong> y explica cómo las organizaciones pueden cambiar la manera en que trabajan, toman decisiones, atienden a sus clientes y generan valor. La idea principal es que transformar una empresa no consiste solamente en comprar equipos o incorporar programas, sino en realizar cambios significativos en la organización.</p>
+                </div>
+
+                <div class="svc-visual reveal reveal-right reveal-delay-2">
+                    <span class="svc-shape svc-shape-a" aria-hidden="true"></span>
+                    <span class="svc-shape svc-shape-b" aria-hidden="true"></span>
+                    <span class="svc-shape svc-shape-c" aria-hidden="true"></span>
+                    <img src="images/electiva-profesional-nueva.jpg" alt="Estudiantes de la Universidad Simón Bolívar trabajando juntos en un portátil durante Electiva Profesional I" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-hero" id="beneficios">
+        <div class="video-hero-bg" aria-hidden="true"></div>
+        <div class="video-hero-box">
+            <span class="video-hero-play" aria-hidden="true">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <h2>Metodologías</h2>
+            <p>La metodología de aprendizaje se basa en un enfoque teórico-práctico, mediante actividades, lecturas, recursos digitales y ejercicios que permiten comprender los conceptos empresariales. Se promueve la participación, el análisis de situaciones reales y el desarrollo de ideas innovadoras, fortaleciendo habilidades como el pensamiento crítico, la creatividad y el trabajo en equipo.</p>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header hiw-header">
+                <span class="svc-eyebrow">Nosotros</span>
+                <h2>Objetivos de <span class="svc-green">aprendizaje</span></h2>
+            </div>
+
+            <div class="hiw-grid">
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">01.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Comprender">
+                            <defs>
+                                <linearGradient id="hw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="ho1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="hs1" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.785) translate(-50.00 -43.25)">
+                            <g filter="url(#hs1)">
+                                <path d="M50 17c-13.5 0-23 9.4-23 22 0 8.5 4.5 13.5 8.5 17.5 2.5 2.5 3.5 5 3.5 8h22c0-3 1-5.5 3.5-8C68.5 52.5 73 47.5 73 39c0-12.6-9.5-22-23-22z" fill="url(#hw1)"/>
+                                <circle cx="50" cy="38" r="11" fill="#FF8F00" opacity=".16"/>
+                                <path d="M42.5 38.5L50 48l7.5-9.5M50 48v14" stroke="#FF8F00" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="37" y="65" width="26" height="7" rx="3.5" fill="#A6F4C0"/>
+                                <rect x="40.5" y="74" width="19" height="7" rx="3.5" fill="#7FE3A3"/>
+                            </g>
+                            <g stroke="#A6F4C0" stroke-width="3.2" stroke-linecap="round">
+                                <path d="M50 5.5v6"/><path d="M22 14l4.2 4.2"/><path d="M78 14l-4.2 4.2"/><path d="M10.5 37h6"/><path d="M83.5 37h6"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </div>
+                    <h3>Comprender</h3>
+                    <p>Comprender qué es la transformación empresarial y por qué se ha convertido en una necesidad estratégica.</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">02.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Distinguir">
+                            <defs>
+                                <linearGradient id="hw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="ho2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="hs2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.838) translate(-50.00 -44.50)">
+                            <g filter="url(#hs2)">
+                                <rect x="13" y="30" width="35" height="46" rx="6" fill="#A6F4C0"/>
+                                <rect x="52" y="30" width="35" height="46" rx="6" fill="url(#hw2)"/>
+                                <rect x="19" y="38" width="16" height="4.5" rx="2.25" fill="#04662C"/>
+                                <rect x="19" y="48" width="23" height="3" rx="1.5" fill="#088732" opacity=".75"/>
+                                <rect x="19" y="55" width="23" height="3" rx="1.5" fill="#088732" opacity=".75"/>
+                                <rect x="19" y="62" width="14" height="3" rx="1.5" fill="#088732" opacity=".75"/>
+                                <rect x="58" y="38" width="16" height="4.5" rx="2.25" fill="#FF8F00"/>
+                                <rect x="58" y="48" width="23" height="3" rx="1.5" fill="#FFA733"/>
+                                <rect x="58" y="55" width="23" height="3" rx="1.5" fill="#FFA733"/>
+                                <rect x="58" y="62" width="14" height="3" rx="1.5" fill="#FFA733"/>
+                                <circle cx="50" cy="24" r="11" fill="url(#ho2)" stroke="#fff" stroke-width="2.5"/>
+                                <path d="M44 21.5h12M52.5 18l3.5 3.5-3.5 3.5M56 27.5H44M47.5 24l-3.5 3.5 3.5 3.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </div>
+                    <h3>Distinguir</h3>
+                    <p>Distinguir entre digitización, digitalización, transformación digital y transformación empresarial.</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">03.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Identificar">
+                            <defs>
+                                <linearGradient id="hw3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="ho3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="hs3" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.826) translate(-49.15 -49.85)">
+                            <g filter="url(#hs3)">
+                                <g transform="translate(41 56) scale(.84)">
+                                    <g fill="#fff"><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(0.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(45.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(90.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(135.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(180.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(225.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(270.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(315.0)"/></g>
+                                    <circle r="27" fill="url(#hw3)"/>
+                                    <circle r="14" fill="#088732"/>
+                                    <circle r="8" fill="url(#ho3)"/>
+                                    <circle r="3" fill="#fff"/>
+                                </g>
+                                <g transform="translate(74 27) scale(.36) rotate(22.5)">
+                                    <g fill="#A6F4C0"><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(0.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(45.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(90.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(135.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(180.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(225.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(270.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(315.0)"/></g>
+                                    <circle r="27" fill="#A6F4C0"/>
+                                    <circle r="12" fill="#088732"/>
+                                </g>
+                            </g>
+                        </g>
+                        </svg>
+                    </div>
+                    <h3>Identificar</h3>
+                    <p>Identificar los principales factores que impulsan el cambio en las organizaciones.</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">04.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Analizar">
+                            <defs>
+                                <linearGradient id="hw4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="ho4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="hs4" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.969) translate(-49.00 -49.50)">
+                            <g filter="url(#hs4)">
+                                <rect x="17" y="21" width="54" height="52" rx="7" fill="url(#hw4)"/>
+                                <path d="M17 28a7 7 0 0 1 7-7h40a7 7 0 0 1 7 7v5H17z" fill="#A6F4C0"/>
+                                <circle cx="25" cy="27" r="1.9" fill="#088732"/><circle cx="31" cy="27" r="1.9" fill="#088732"/><circle cx="37" cy="27" r="1.9" fill="#088732"/>
+                                <path d="M24 64h40" stroke="#BFE8CD" stroke-width="2" stroke-linecap="round"/>
+                                <rect x="24" y="53" width="8" height="11" rx="1.8" fill="#4CCB7A"/>
+                                <rect x="35" y="47" width="8" height="17" rx="1.8" fill="#088732"/>
+                                <rect x="46" y="51" width="8" height="13" rx="1.8" fill="#04662C"/>
+                                <path d="M25 45l11-7 10 4 13-8" stroke="#FF8F00" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="25" cy="45" r="2.4" fill="#FF8F00"/><circle cx="36" cy="38" r="2.4" fill="#FF8F00"/><circle cx="46" cy="42" r="2.4" fill="#FF8F00"/>
+                                <circle cx="62" cy="59" r="13" fill="#A6F4C0" fill-opacity=".55" stroke="url(#ho4)" stroke-width="5"/>
+                                <path d="M71.5 68.5l9.5 9.5" stroke="#FF8F00" stroke-width="7" stroke-linecap="round"/>
+                                <path d="M55 55a8 8 0 0 1 6-5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".9"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </div>
+                    <h3>Analizar</h3>
+                    <p>Analizar casos empresariales y reconocer qué aspectos cambiaron: tecnología, procesos, personas, estrategia o modelo de negocio.</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">05.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Evaluar">
+                            <defs>
+                                <linearGradient id="hw5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="ho5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="hs5" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.699) translate(-54.01 -49.00)">
+                            <g filter="url(#hs5)">
+                                <rect x="46.5" y="22" width="7" height="53" rx="3.5" fill="url(#hw5)"/>
+                                <rect x="29" y="74" width="42" height="8" rx="4" fill="url(#hw5)"/>
+                                <g transform="rotate(-6 50 22)">
+                                    <path d="M17 31h66" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/>
+                                    <path d="M17 31L8.5 55M17 31l8.5 24M83 31l-8.5 24M83 31l8.5 24" stroke="#A6F4C0" stroke-width="2.2" stroke-linecap="round"/>
+                                    <path d="M6 55h22a11 11 0 0 1-22 0z" fill="url(#ho5)"/>
+                                    <path d="M72 55h22a11 11 0 0 1-22 0z" fill="#A6F4C0"/>
+                                    <circle cx="17" cy="50" r="4.5" fill="#FFD27A" stroke="#FF8F00" stroke-width="1.6"/>
+                                </g>
+                                <circle cx="50" cy="22" r="6" fill="url(#ho5)" stroke="#fff" stroke-width="2.5"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </div>
+                    <h3>Evaluar</h3>
+                    <p>Evaluar situaciones empresariales para determinar si representan un cambio tecnológico puntual o una transformación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack" id="integracion">
+        <video class="int-video" id="intVideo" muted loop playsinline preload="none" poster="images/integracion-poster.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+            <source src="videos/integracion-bg.mp4" type="video/mp4">
+        </video>
+        <div class="container">
+            <div class="section-header hiw-header">
+                <span class="svc-eyebrow">Omnicanalidad</span>
+                <h2>¿Qué es la transformación <span class="svc-green">empresarial?</span></h2>
+                <p>La transformación empresarial es un proceso estratégico de cambio profundo mediante el cual una organización modifica la forma en que opera, crea valor y responde a su entorno para mantenerse competitiva y sostenible.</p>
+                <p>La tecnología puede ayudar a iniciar o acelerar ese cambio, pero no es suficiente por sí sola. La transformación se presenta cuando también se modifican la forma de trabajar, la toma de decisiones, la estrategia, la cultura y la relación con los clientes.</p>
+            </div>
+
+            <div class="int-grid">
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="iw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="io1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="is1" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.818) translate(-48.00 -53.00)">
+                                <g filter="url(#is1)">
+                                <circle cx="46" cy="55" r="31" fill="url(#iw1)"/>
+                                <circle cx="46" cy="55" r="23" fill="#088732"/>
+                                <circle cx="46" cy="55" r="15" fill="url(#iw1)"/>
+                                <circle cx="46" cy="55" r="7.5" fill="url(#io1)"/>
+                                <path d="M46 55L77 24" stroke="#FF8F00" stroke-width="4.5" stroke-linecap="round"/>
+                                <path d="M69 32l-1.5-12 5.5 3.5 3.5 5.5z" fill="#FFA733"/>
+                                <path d="M69 32l12 1.5-3.5-5.5-5.5-3.5z" fill="#FF8F00"/>
+                                </g>
+                            </g>
+                            </svg></div>
+                    <h3>Estrategia</h3>
+                    <p>Hacia dónde se dirige la organización y cómo compite.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="iw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="io2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="is2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.964) translate(-50.00 -50.00)">
+                                <g filter="url(#is2)">
+                                <path d="M27.4 41.8A24 24 0 0 1 70.4 37.3" stroke="#fff" stroke-width="7.500" fill="none" stroke-linecap="round"/>
+                                <path d="M76.2 46.6L78.0 32.5L62.7 42.1z" fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M72.6 58.2A24 24 0 0 1 29.6 62.7" stroke="url(#io2)" stroke-width="7.500" fill="none" stroke-linecap="round"/>
+                                <path d="M23.8 53.4L22.0 67.5L37.3 57.9z" fill="#FF8F00" stroke="#FF8F00" stroke-width="2" stroke-linejoin="round"/>
+                                </g>
+                            </g>
+                            </svg></div>
+                    <h3>Procesos</h3>
+                    <p>Cómo realiza sus actividades y entrega valor.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="iw3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="io3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="is3" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.659) translate(-50.00 -50.00)">
+                                <g filter="url(#is3)">
+                                <circle cx="24" cy="42" r="8.5" fill="#A6F4C0"/>
+                                <path d="M9 74a15 15 0 0 1 30 0z" fill="#A6F4C0"/>
+                                <circle cx="76" cy="42" r="8.5" fill="#A6F4C0"/>
+                                <path d="M61 74a15 15 0 0 1 30 0z" fill="#A6F4C0"/>
+                                <circle cx="50" cy="32" r="12" fill="url(#iw3)"/>
+                                <path d="M28 80a22 22 0 0 1 44 0z" fill="url(#io3)"/>
+                                </g>
+                            </g>
+                            </svg></div>
+                    <h3>Personas</h3>
+                    <p>Roles, capacidades, liderazgo y nuevas competencias.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="iw4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="io4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="is4" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.711) translate(-50.00 -54.50)">
+                                <g filter="url(#is4)">
+                                <rect x="12" y="20" width="50" height="35" rx="10" fill="url(#iw4)"/>
+                                <path d="M24 55l-3 14 16-14z" fill="#E9FAEF"/>
+                                <circle cx="27" cy="37.5" r="3.4" fill="#088732"/><circle cx="37" cy="37.5" r="3.4" fill="#088732"/><circle cx="47" cy="37.5" r="3.4" fill="#088732"/>
+                                <rect x="40" y="42" width="48" height="34" rx="10" fill="url(#io4)"/>
+                                <path d="M76 76l3 13-16-13z" fill="#FF8F00"/>
+                                <path d="M64 69c-10-5.5-14-10-14-14.5 0-3.5 2.5-6 5.5-6 3 0 5.500 2 8.500 5 3-3 5.500-5 8.500-5 3 0 5.500 2.500 5.500 6 0 4.500-4 9-14 14.500z" fill="#fff"/>
+                                </g>
+                            </g>
+                            </svg></div>
+                    <h3>Cultura</h3>
+                    <p>Mentalidad, colaboración y disposición al cambio.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="iw5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="io5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="is5" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.794) translate(-55.00 -47.00)">
+                                <g filter="url(#is5)">
+                                <path d="M24 32v38c0 6.500 11.500 11 26 11s26-4.500 26-11V32z" fill="url(#iw5)"/>
+                                <ellipse cx="50" cy="32" rx="26" ry="10.500" fill="#A6F4C0"/>
+                                <path d="M24 46c0 6 11.500 10.500 26 10.500S76 52 76 46M24 58.500c0 6 11.500 10.500 26 10.500S76 64.500 76 58.500" stroke="#088732" stroke-width="3" fill="none"/>
+                                <circle cx="73" cy="26" r="13" fill="url(#io5)" stroke="#fff" stroke-width="3"/>
+                                <path d="M75.500 17.500l-8 10h6l-2.500 9 9.500-11.500h-6.500z" fill="#fff"/>
+                                </g>
+                            </g>
+                            </svg></div>
+                    <h3>Tecnología y datos</h3>
+                    <p>Herramientas que habilitan nuevas capacidades y permiten tomar mejores decisiones.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="iw6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="io6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="is6" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="#088732"/>
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.750) translate(-50.00 -50.00)">
+                                <g filter="url(#is6)">
+                                <rect x="14" y="22" width="72" height="56" rx="6" fill="url(#iw6)"/>
+                                <path d="M14 28a6 6 0 0 1 6-6h14v56H20a6 6 0 0 1-6-6z" fill="#A6F4C0"/>
+                                <rect x="34" y="22" width="26" height="28" fill="url(#io6)"/>
+                                <path d="M60 50h26v22a6 6 0 0 1-6 6H60z" fill="#A6F4C0"/>
+                                <path d="M34 22v56M60 22v56M14 50h72" stroke="#088732" stroke-width="2.600"/>
+                                <rect x="14" y="22" width="72" height="56" rx="6" fill="none" stroke="#088732" stroke-width="2.600"/>
+                                </g>
+                            </g>
+                            </svg></div>
+                    <h3>Modelo de negocio</h3>
+                    <p>La manera en que la organización crea, entrega y captura valor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps-sec" id="para-empresas">
+        <div class="container">
+            <div class="steps-grid">
+                <div class="steps-left">
+                    <div class="steps-head reveal">
+                        <span class="svc-eyebrow">Introducción</span>
+                        <h2 class="steps-title">¿Por qué se transforman <span class="svc-green">las empresas?</span></h2>
+                    </div>
+
+                    <ol class="steps-list">
+                        <li class="steps-item reveal reveal-delay-1">
+                            <span class="steps-num" aria-hidden="true">1</span>
+                            <div>
+                                <h3>Clientes más exigentes</h3>
+                                <p>Esperan rapidez, personalización, disponibilidad y experiencias sencillas.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-2">
+                            <span class="steps-num" aria-hidden="true">2</span>
+                            <div>
+                                <h3>Avances tecnológicos</h3>
+                                <p>La inteligencia artificial, la automatización, la nube, el Internet de las cosas, la analítica de datos y las plataformas digitales generan nuevas posibilidades.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-3">
+                            <span class="steps-num" aria-hidden="true">3</span>
+                            <div>
+                                <h3>Nuevos competidores</h3>
+                                <p>Las empresas digitales pueden ingresar con rapidez a mercados tradicionales.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-4">
+                            <span class="steps-num" aria-hidden="true">4</span>
+                            <div>
+                                <h3>Cambios en el mercado</h3>
+                                <p>Evolucionan los hábitos de consumo, los canales de venta y la relación con las marcas.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-4">
+                            <span class="steps-num" aria-hidden="true">5</span>
+                            <div>
+                                <h3>Necesidad de eficiencia</h3>
+                                <p>Las organizaciones buscan reducir costos, eliminar tareas repetitivas y tomar mejores decisiones.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-4">
+                            <span class="steps-num" aria-hidden="true">6</span>
+                            <div>
+                                <h3>Crisis y cambios inesperados</h3>
+                                <p>Situaciones económicas, sociales, sanitarias o regulatorias pueden acelerar los cambios.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="steps-mosaic-wrap">
+                    <div class="steps-mosaic" aria-hidden="true">
+                        <figure class="mz mz-a reveal reveal-scale"><img src="images/mosaic-reunion.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-b reveal reveal-scale reveal-delay-1"><img src="images/mosaic-transformacion.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-c reveal reveal-scale reveal-delay-2"><img src="images/mosaic-manos.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-d reveal reveal-scale reveal-delay-2"><img src="images/mosaic-apreton.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-e reveal reveal-scale reveal-delay-3"><img src="images/mosaic-equipo.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-f reveal reveal-scale reveal-delay-4"><img src="images/mosaic-documentos.png" alt="" loading="lazy"></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="concepts" id="conceptos" aria-label="Transformación digital vs. Digitalización">
+        <div class="container">
+            <div class="concepts-grid">
+                <div class="concepts-col concepts-col-a">
+                    <header class="concepts-head reveal" style="order:1">
+                        <h2 class="steps-title">Transformación digital <span class="svc-green">vs.</span> Digitalización</h2>
+                    </header>
+
+                    <article class="concept reveal" style="order:2">
+                        <span class="concept-tag">Concepto 1</span>
+                        <h3>Digitización</h3>
+                        <p class="concept-lead">La digitización consiste en convertir información analógica o física en un formato digital. Por ejemplo, escanear un documento de papel para convertirlo en un archivo digital.</p>
+                        <ul class="concept-list">
+                            <li>Documento físico convertido en PDF.</li>
+                            <li>Expediente en papel convertido en expediente electrónico.</li>
+                            <li>Formulario impreso convertido en un archivo o formato digital.</li>
+                            <li>Factura física convertida en documento electrónico.</li>
+                        </ul>
+                    </article>
+
+                    <figure class="concept-img cfig-1 reveal reveal-scale" style="order:3"><span class="cshape cshape-a" aria-hidden="true"></span><span class="cshape cshape-b" aria-hidden="true"></span><span class="cshape cshape-c" aria-hidden="true"></span><img src="images/digitizacion.jpg" alt="Persona transcribiendo documentos en papel a una hoja de cálculo en el computador" loading="lazy"></figure>
+
+                    <article class="concept reveal" style="order:6">
+                        <span class="concept-tag">Concepto 3</span>
+                        <h3>Transformación digital</h3>
+                        <p class="concept-lead">La transformación digital es la integración estratégica de tecnologías digitales para rediseñar procesos, experiencias, decisiones y formas de crear valor dentro de una organización. No consiste solamente en incorporar una aplicación o una herramienta, sino en cambiar la manera en que la organización funciona aprovechando esas tecnologías.</p>
+                        <h4>Aspectos que pueden cambiar</h4>
+                        <ul class="concept-list">
+                            <li><strong>Procesos:</strong> automatización, integración y eliminación de tareas innecesarias.</li>
+                            <li><strong>Experiencia del cliente:</strong> servicios personalizados, digitales y disponibles en nuevos canales.</li>
+                            <li><strong>Decisiones:</strong> uso de datos, analítica e inteligencia artificial para decidir mejor y más rápido.</li>
+                            <li><strong>Personas y trabajo:</strong> nuevas competencias, colaboración digital y redefinición de funciones.</li>
+                            <li><strong>Creación de valor:</strong> nuevos servicios, canales y oportunidades de negocio.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="concepts-col concepts-col-b">
+                    <figure class="concept-img cfig-2 reveal reveal-scale" style="order:5"><span class="cshape cshape-a" aria-hidden="true"></span><span class="cshape cshape-b" aria-hidden="true"></span><span class="cshape cshape-c" aria-hidden="true"></span><img src="images/digitalizacion.jpg" alt="Manos escribiendo en un portátil con iconos digitales de inteligencia artificial, datos y conectividad" loading="lazy"></figure>
+
+                    <article class="concept reveal" style="order:4">
+                        <span class="concept-tag">Concepto 2</span>
+                        <h3>Digitalización</h3>
+                        <p class="concept-lead">La digitalización consiste en utilizar tecnologías digitales para convertir o mejorar tareas, actividades y procesos tradicionales, buscando facilitar el acceso a la información, aumentar la velocidad y mejorar la eficiencia. Puede apoyarse en tecnología sin cambiar por completo la lógica del proceso.</p>
+                        <ul class="concept-list">
+                            <li>Utilizar un formulario web en lugar de uno impreso.</li>
+                            <li>Almacenar documentos en la nube.</li>
+                            <li>Apoyar actividades administrativas mediante herramientas digitales.</li>
+                        </ul>
+                    </article>
+
+                    <figure class="concept-img cfig-3 reveal reveal-scale" style="order:7"><span class="cshape cshape-a" aria-hidden="true"></span><span class="cshape cshape-b" aria-hidden="true"></span><span class="cshape cshape-c" aria-hidden="true"></span><img src="images/transformacion-digital.webp" alt="Mano sosteniendo una bombilla con iconos de nube, datos y colaboración digital" loading="lazy"></figure>
+
+                    <blockquote class="concept-quote reveal" style="order:8">No se trata solo de una herramienta, sino de cambiar la manera en que la organización funciona.</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="strategy" id="estrategia" aria-label="Estrategia empresarial y capacidades digitales">
+        <div class="container">
+            <div class="strategy-head reveal">
+                <span class="svc-eyebrow">Estrategia</span>
+                <h2 class="steps-title">Estrategia empresarial y <span class="svc-green">capacidades digitales</span></h2>
+            </div>
+
+            <div class="strategy-rel">
+                <div class="strategy-rel-text reveal reveal-left">
+                    <span class="concept-tag">Relación</span>
+                    <h3>Relación con la estrategia empresarial</h3>
+                    <p>La estrategia se refiere a hacia dónde se dirige la organización y cómo compite. Por eso, una transformación debe responder a los cambios del entorno, a las necesidades de los clientes y a las oportunidades que ofrecen las tecnologías. Las organizaciones pueden transformarse por presión externa, oportunidades tecnológicas o necesidades internas.</p>
+                </div>
+                <figure class="concept-img cfig-2 reveal reveal-right reveal-delay-2">
+                    <span class="cshape cshape-a" aria-hidden="true"></span><span class="cshape cshape-b" aria-hidden="true"></span><span class="cshape cshape-c" aria-hidden="true"></span>
+                    <img src="images/estrategia-empresarial.jpg" alt="Dos profesionales analizando gráficos y reportes sobre una mesa de trabajo" loading="lazy">
+                </figure>
+            </div>
+
+            <h3 class="strategy-sub reveal">Capacidades relacionadas con el cambio</h3>
+            <p class="strategy-lead reveal">Una capacidad es lo que la organización sabe y puede hacer. Estas son las dimensiones que apoyan la transformación:</p>
+            <div class="cap-grid">
+                <article class="cap-card reveal reveal-delay-1">
+                    <span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="cw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                            <linearGradient id="co1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                            <filter id="cs1" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                        </defs>
+                        <rect width="100" height="100" fill="#088732"/>
+                        <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                        <g transform="translate(50 50) scale(0.683) translate(-50.00 -50.00)">
+                            <g filter="url(#cs1)">
+                            <circle cx="24" cy="42" r="8.5" fill="#A6F4C0"/><path d="M9 74a15 15 0 0 1 30 0z" fill="#A6F4C0"/>
+                            <circle cx="76" cy="42" r="8.5" fill="#A6F4C0"/><path d="M61 74a15 15 0 0 1 30 0z" fill="#A6F4C0"/>
+                            <circle cx="50" cy="32" r="12" fill="url(#cw1)"/>
+                            <path d="M28 80a22 22 0 0 1 44 0z" fill="url(#co1)"/>
+                            </g>
+                        </g>
+                        </svg></span>
+                    <h4>Capacidades de las personas</h4>
+                    <p>Desarrollar competencias, asumir nuevos roles y fortalecer el liderazgo.</p>
+                </article>
+                <article class="cap-card reveal reveal-delay-2">
+                    <span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="cw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                            <linearGradient id="co2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                            <filter id="cs2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                        </defs>
+                        <rect width="100" height="100" fill="#088732"/>
+                        <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                        <g transform="translate(50 50) scale(1.000) translate(-50.00 -50.00)">
+                            <g filter="url(#cs2)">
+                            <path d="M27.4 41.8A24 24 0 0 1 70.4 37.3" stroke="#fff" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+                            <path d="M76.2 46.6L78.0 32.5L62.7 42.1z" fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M72.6 58.2A24 24 0 0 1 29.6 62.7" stroke="url(#co2)" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+                            <path d="M23.8 53.4L22.0 67.5L37.3 57.9z" fill="#FF8F00" stroke="#FF8F00" stroke-width="2" stroke-linejoin="round"/>
+                            <g transform="translate(50 50) scale(.3)"><g fill="#A6F4C0"><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(0.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(45.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(90.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(135.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(180.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(225.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(270.0)"/><rect x="-6" y="-35" width="12" height="15" rx="3" transform="rotate(315.0)"/></g><circle r="27" fill="#A6F4C0"/><circle r="11" fill="#088732"/></g>
+                            </g>
+                        </g>
+                        </svg></span>
+                    <h4>Capacidades de los procesos</h4>
+                    <p>Integrar actividades, automatizar tareas y eliminar pasos innecesarios.</p>
+                </article>
+                <article class="cap-card reveal reveal-delay-3">
+                    <span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="cw3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                            <linearGradient id="co3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                            <filter id="cs3" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                        </defs>
+                        <rect width="100" height="100" fill="#088732"/>
+                        <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                        <g transform="translate(50 50) scale(0.778) translate(-50.00 -50.00)">
+                            <g filter="url(#cs3)">
+                            <rect x="14" y="18" width="72" height="64" rx="4" fill="url(#cw3)"/>
+                            <path d="M14 22a4 4 0 0 1 4-4h64a4 4 0 0 1 4 4v10H14z" fill="#A6F4C0"/>
+                            <circle cx="23" cy="25" r="2.2" fill="#088732"/><circle cx="30" cy="25" r="2.2" fill="#088732"/><circle cx="37" cy="25" r="2.2" fill="#088732"/>
+                            <path d="M22 74h56" stroke="#BFE8CD" stroke-width="2" stroke-linecap="round"/>
+                            <rect x="24" y="58" width="11" height="16" rx="2" fill="#4CCB7A"/>
+                            <rect x="40" y="50" width="11" height="24" rx="2" fill="#088732"/>
+                            <rect x="56" y="55" width="11" height="19" rx="2" fill="#04662C"/>
+                            <path d="M24 50l16-10 14 6 20-14" stroke="#FF8F00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="24" cy="50" r="3" fill="#FF8F00"/><circle cx="40" cy="40" r="3" fill="#FF8F00"/><circle cx="54" cy="46" r="3" fill="#FF8F00"/><circle cx="74" cy="32" r="3" fill="#FF8F00" stroke="#fff" stroke-width="1"/>
+                            </g>
+                        </g>
+                        </svg></span>
+                    <h4>Capacidades tecnológicas y de datos</h4>
+                    <p>Utilizar herramientas digitales, información y analítica para apoyar el trabajo y las decisiones.</p>
+                </article>
+                <article class="cap-card reveal reveal-delay-4">
+                    <span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="cw4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                            <linearGradient id="co4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                            <filter id="cs4" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                        </defs>
+                        <rect width="100" height="100" fill="#088732"/>
+                        <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                        <g transform="translate(50 50) scale(0.737) translate(-50.00 -54.50)">
+                            <g filter="url(#cs4)">
+                            <rect x="12" y="20" width="50" height="35" rx="10" fill="url(#cw4)"/>
+                            <path d="M24 55l-3 14 16-14z" fill="#E9FAEF"/>
+                            <circle cx="27" cy="37.5" r="3.4" fill="#088732"/><circle cx="37" cy="37.5" r="3.4" fill="#088732"/><circle cx="47" cy="37.5" r="3.4" fill="#088732"/>
+                            <rect x="40" y="42" width="48" height="34" rx="10" fill="url(#co4)"/>
+                            <path d="M76 76l3 13-16-13z" fill="#FF8F00"/>
+                            <path d="M64 69c-10-5.5-14-10-14-14.5 0-3.5 2.5-6 5.5-6 3 0 5.5 2 8.5 5 3-3 5.5-5 8.5-5 3 0 5.5 2.5 5.5 6 0 4.5-4 9-14 14.5z" fill="#fff"/>
+                            </g>
+                        </g>
+                        </svg></span>
+                    <h4>Capacidades culturales</h4>
+                    <p>Fomentar la colaboración y la disposición al cambio.</p>
+                </article>
+                <article class="cap-card reveal reveal-delay-4">
+                    <span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="cw5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                            <linearGradient id="co5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                            <filter id="cs5" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                        </defs>
+                        <rect width="100" height="100" fill="#088732"/>
+                        <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                        <g transform="translate(50 50) scale(0.709) translate(-50.00 -43.25)">
+                            <g filter="url(#cs5)">
+                            <path d="M50 17c-13.500 0-23 9.400-23 22 0 8.500 4.500 13.500 8.500 17.500 2.500 2.500 3.500 5 3.500 8h22c0-3 1-5.500 3.500-8C68.500 52.500 73 47.500 73 39c0-12.600-9.500-22-23-22z" fill="url(#cw5)"/>
+                            <circle cx="50" cy="38" r="11" fill="#FF8F00" opacity=".16"/>
+                            <path d="M42.500 38.500L50 48l7.500-9.500M50 48v14" stroke="#FF8F00" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="37" y="65" width="26" height="7" rx="3.500" fill="#A6F4C0"/>
+                            <rect x="40.500" y="74" width="19" height="7" rx="3.500" fill="#7FE3A3"/>
+                            <path d="M80 12l2.600 6.400L89 21l-6.400 2.600L80 30l-2.600-6.400L71 21l6.400-2.600z" fill="url(#co5)"/>
+                            </g>
+                            <g stroke="#A6F4C0" stroke-width="3.200" stroke-linecap="round"><path d="M50 5.500v6"/><path d="M22 14l4.200 4.200"/><path d="M10.500 37h6"/><path d="M83.500 37h6" opacity="0"/></g>
+                        </g>
+                        </svg></span>
+                    <h4>Capacidades de innovación y adaptación</h4>
+                    <p>Responder a las necesidades del mercado y encontrar nuevas formas de crear valor.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="bmc" id="modelos-negocio" aria-label="Modelos de negocio digital">
+        <div class="container">
+            <div class="bmc-top">
+                <figure class="concept-img cfig-1 reveal reveal-scale">
+                    <span class="cshape cshape-a" aria-hidden="true"></span><span class="cshape cshape-b" aria-hidden="true"></span><span class="cshape cshape-c" aria-hidden="true"></span>
+                    <img src="images/modelos-negocio.png" alt="Pizarra con el Business Model Canvas: propuesta de valor, actividades, socios, canales, segmentos, relación con clientes, ingresos, costos y recursos clave" loading="lazy">
+                </figure>
+                <div class="bmc-text reveal reveal-right reveal-delay-2">
+                    <span class="svc-eyebrow">Modelos</span>
+                    <h2 class="steps-title">Modelos de negocio digital <span class="svc-green">(Business Model Canvas)</span></h2>
+                    <p>El Business Model Canvas es una herramienta visual para describir, analizar y diseñar el modelo de negocio de una organización, es decir, la manera en que <strong>crea, entrega y captura valor</strong>. En un solo lienzo reúne nueve bloques que muestran cómo se conectan los clientes, la propuesta de valor, los canales, los recursos, las actividades, las alianzas y la economía del negocio.</p>
+                    <p>En un <strong>modelo de negocio digital</strong>, la tecnología, los datos y los canales digitales hacen parte de esa lógica: permiten llegar a nuevos clientes, ofrecer servicios en línea y generar nuevas formas de ingreso.</p>
+                </div>
+            </div>
+
+            <h3 class="strategy-sub reveal">Los nueve bloques del lienzo, en tres pasos</h3>
+            <div class="bmc-flow">
+                    <article class="bmc-flow-card reveal reveal-delay-1">
+                        <span class="bmc-flow-num" aria-hidden="true">1</span>
+                        <div class="bmc-flow-head"><span class="bmc-flow-icon"><svg viewBox="0 0 100 100" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="bw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="bo1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="bs1" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <rect width="100" height="100" fill="#088732"/>
+                            <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.718) translate(-53.00 -48.00)">
+                                <g filter="url(#bs1)">
+                                <path d="M30 26h40l16 20H14z" fill="#A6F4C0"/>
+                                <path d="M14 46h72L50 84z" fill="url(#bw1)"/>
+                                <path d="M42 26l-10 20M58 26l10 20M50 26v20M32 46l18 38 18-38" stroke="#088732" stroke-width="2.200" fill="none" stroke-linejoin="round" opacity=".55"/>
+                                <circle cx="80" cy="24" r="12" fill="url(#bo1)" stroke="#fff" stroke-width="3"/>
+                                <path d="M80 18v12M74 24h12" stroke="#fff" stroke-width="3.500" stroke-linecap="round"/>
+                                </g>
+                            </g>
+                            </svg></span><h4><strong>Crea</strong> valor</h4></div>
+                        <ul class="bmc-blocks">
+                            <li><strong>Propuesta de valor</strong><span>Lo que ofrece la organización y por qué es útil para sus clientes.</span></li>
+                            <li><strong>Actividades clave</strong><span>Lo más importante que debe hacer para que el modelo funcione.</span></li>
+                            <li><strong>Recursos clave</strong><span>Personas, tecnología, datos e infraestructura que necesita.</span></li>
+                            <li><strong>Alianzas clave</strong><span>Socios y proveedores que complementan la operación.</span></li>
+                        </ul>
+                    </article>
+                    <span class="bmc-flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></span>
+                    <article class="bmc-flow-card reveal reveal-delay-2">
+                        <span class="bmc-flow-num" aria-hidden="true">2</span>
+                        <div class="bmc-flow-head"><span class="bmc-flow-icon"><svg viewBox="0 0 100 100" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="bw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="bo2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="bs2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <rect width="100" height="100" fill="#088732"/>
+                            <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.78) translate(-45.00 -52.50)">
+                                <g filter="url(#bs2)">
+                                <rect x="16" y="28" width="44" height="38" rx="4" fill="url(#bw2)"/>
+                                <rect x="26" y="38" width="24" height="5" rx="2.500" fill="#A6F4C0"/>
+                                <rect x="26" y="48" width="14" height="5" rx="2.500" fill="#FF8F00"/>
+                                <path d="M60 40h14l14 14v12H60z" fill="url(#bo2)"/>
+                                <path d="M66 45h7l8 9H66z" fill="#E9FAEF"/>
+                                <circle cx="30" cy="68" r="9" fill="#fff"/><circle cx="30" cy="68" r="3.800" fill="#088732"/>
+                                <circle cx="74" cy="68" r="9" fill="#fff"/><circle cx="74" cy="68" r="3.800" fill="#088732"/>
+                                </g>
+                                <g stroke="#A6F4C0" stroke-width="3.200" stroke-linecap="round"><path d="M4 36h6"/><path d="M2 46h8"/><path d="M6 56h4"/></g>
+                            </g>
+                            </svg></span><h4><strong>Entrega</strong> valor</h4></div>
+                        <ul class="bmc-blocks">
+                            <li><strong>Segmentos de clientes</strong><span>A quiénes atiende y qué necesitan.</span></li>
+                            <li><strong>Canales</strong><span>Cómo llega hasta ellos, incluidos los canales digitales.</span></li>
+                            <li><strong>Relación con los clientes</strong><span>Cómo los atiende, los acompaña y los mantiene.</span></li>
+                        </ul>
+                    </article>
+                    <span class="bmc-flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></span>
+                    <article class="bmc-flow-card reveal reveal-delay-3">
+                        <span class="bmc-flow-num" aria-hidden="true">3</span>
+                        <div class="bmc-flow-head"><span class="bmc-flow-icon"><svg viewBox="0 0 100 100" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="bw3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF7E6"/></linearGradient>
+                                <linearGradient id="bo3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB547"/><stop offset="1" stop-color="#FF8F00"/></linearGradient>
+                                <filter id="bs3" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#022f14" flood-opacity=".45"/></filter>
+                            </defs>
+                            <rect width="100" height="100" fill="#088732"/>
+                            <rect x="4.5" y="4.5" width="91" height="91" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/>
+                            <g transform="translate(50 50) scale(0.757) translate(-51.00 -52.50)">
+                                <g filter="url(#bs3)">
+                                <ellipse cx="36" cy="79" rx="22" ry="8" fill="#7FE3A3"/><ellipse cx="36" cy="74" rx="22" ry="8" fill="#A6F4C0"/>
+                                <ellipse cx="36" cy="69" rx="22" ry="8" fill="#7FE3A3"/><ellipse cx="36" cy="64" rx="22" ry="8" fill="#A6F4C0"/>
+                                <ellipse cx="36" cy="59" rx="22" ry="8" fill="#7FE3A3"/><ellipse cx="36" cy="54" rx="22" ry="8" fill="#A6F4C0"/>
+                                <circle cx="64" cy="42" r="24" fill="url(#bo3)" stroke="#fff" stroke-width="3.500"/>
+                                <circle cx="64" cy="42" r="17" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>
+                                <g transform="translate(64 42)"><path d="M7 -8c-1-5-14-5-14 1 0 6 14 3 14 9 0 5-13 5-14 0M0 -15v30" stroke="#fff" stroke-width="4.200" fill="none" stroke-linecap="round"/></g>
+                                </g>
+                            </g>
+                            </svg></span><h4><strong>Captura</strong> valor</h4></div>
+                        <ul class="bmc-blocks">
+                            <li><strong>Fuentes de ingreso</strong><span>Cómo obtiene dinero por lo que ofrece.</span></li>
+                            <li><strong>Estructura de costos</strong><span>Qué gastos implica sostener el modelo.</span></li>
+                        </ul>
+                    </article>
+                </div>
+        </div>
+    </section>
+
+    <section class="developers" id="desarrolladores">
+        <div class="container">
+            <div class="developers-header reveal">
+                <h2>DESARROLLADORES</h2>
+            </div>
+
+            <div class="developers-grid">
+                <article class="developer reveal reveal-delay-1">
+                    <div class="developer-photo">
+                        <img src="images/dev-kevin.png" alt="Kevin Alexander Ortiz" loading="lazy">
+                    </div>
+                    <h3 class="developer-name">Kevin Alexander Ortiz</h3>
+                </article>
+
+                <article class="developer reveal reveal-delay-2">
+                    <div class="developer-photo">
+                        <img src="images/dev-pedro.png" alt="Pedro Juan Molina" loading="lazy">
+                    </div>
+                    <h3 class="developer-name">Pedro Juan Molina</h3>
+                </article>
+
+                <article class="developer reveal reveal-delay-3">
+                    <div class="developer-photo">
+                        <img src="images/dev-lucio.png" alt="Lucio Iván García" loading="lazy">
+                    </div>
+                    <h3 class="developer-name">Lucio Iván García</h3>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" id="contacto">
+        <div class="site-footer-stripe" aria-hidden="true"></div>
+
+        <div class="site-footer-inner">
+            <div class="site-footer-brand">
+                <div class="site-footer-brand-head">
+                    <a href="#inicio" class="site-footer-logo" aria-label="Ir al inicio">
+                    <img src="images/logo-footer.png" alt="Logo del equipo">
+                </a>
+                    <h4 class="site-footer-title">Electiva<br>Profesional I</h4>
+                </div>
+                <p class="site-footer-desc">Modelos de Transformación Empresarial. Un recorrido por cómo las organizaciones cambian su manera de trabajar, decidir y generar valor.</p>
+                <div class="site-footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg aria-hidden="true" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg aria-hidden="true" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <nav class="site-footer-col" aria-label="Navegación del pie de página">
+                <h5>Navegación</h5>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#caracteristicas">Resumen de la asignatura</a></li>
+                    <li><a href="#beneficios">Metodologías</a></li>
+                    <li><a href="#como-funciona">Objetivos de aprendizaje</a></li>
+                    <li><a href="#integracion">Transformación empresarial</a></li>
+                    <li><a href="#para-empresas">¿Por qué se transforman?</a></li>
+                    <li><a href="#conceptos">Transformación digital vs. digitalización</a></li>
+                    <li><a href="#estrategia">Estrategia empresarial</a></li>
+                    <li><a href="#modelos-negocio">Modelos de negocio digital</a></li>
+                </ul>
+            </nav>
+
+            <div class="site-footer-col">
+                <h5>Recursos</h5>
+                <ul>
+                    <li><a href="#">Documentación</a></li>
+                    <li><a href="#">Postman</a></li>
+                </ul>
+            </div>
+
+            <div class="site-footer-col">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política y Privacidad de Datos</a></li>
+                    <li><a href="#">Acuerdo de Nivel de Servicio</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div class="site-footer-bottom">
+            <p class="site-footer-copy">© 2026 Electiva Profesional I · Universidad Simón Bolívar</p>
+            <a href="#inicio" class="site-footer-top" aria-label="Volver al inicio de la página">
+                Volver arriba
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <a href="documentos/documento.pdf" download class="doc-float" id="docFloat" aria-label="Descargar documento" title="Descargar documento" aria-hidden="true" tabindex="-1">
+        <svg id="docFloatIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v11m0 0l-4-4m4 4l4-4"/></svg>
+        <span class="doc-float-label" id="docFloatLabel">Descargar documento</span>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
