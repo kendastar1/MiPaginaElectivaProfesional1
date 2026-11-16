@@ -3421,3 +3421,146 @@ img, svg, video { max-width: 100%; }
 .mobile-menu .mm-sub a { padding: 0.45rem 0 0.45rem 0.9rem; font-size: 0.93rem; box-shadow: inset 3px 0 0 #d9f3e2; }
 .mobile-menu .mm-sub a.active { box-shadow: inset 3px 0 0 var(--verde); }
 .dd-chevron { flex: none; margin-block: -6px; }
+
+
+/* ===== SECCIÓN ACTIVIDAD CREATIVA ===== */
+.actividad-creativa-section {
+    position: relative;
+    isolation: isolate;
+    padding: 5rem 0;
+    background: #f3f8f4;
+    overflow: hidden;
+}
+
+.actividad-creativa-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+}
+
+/* Eyebrow label (mismo estilo que .svc-eyebrow de la página) */
+.actividad-creativa-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--acento);
+}
+
+/* Título igual a .steps-title / .developers-header h2 */
+.actividad-creativa-title {
+    display: inline-block;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #1A1D24;
+    margin: 0;
+}
+
+/* Subrayado naranja gradiente — firma del diseño */
+.actividad-creativa-title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin-top: 0.8rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--acento), #FFB420);
+}
+
+/* Descripción igual a .section-header p */
+.actividad-creativa-desc {
+    max-width: 600px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.actividad-btn-link {
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+/* Verde en "Creativa" — mismo patrón que .svc-green */
+.act-verde {
+    color: var(--verde);
+}
+
+/* Botón Actividad Creativa */
+.actividad-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 44px 0 28px;
+    height: 56px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: white;
+    text-shadow: 2px 2px rgb(116, 116, 116);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: solid 2px black;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 17px;
+    background-color: hsl(49, 98%, 60%);
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-shadow: 0 8px 25px rgba(253, 216, 53, 0.4);
+}
+
+.actividad-btn:active {
+    transform: scale(0.9);
+    transition: all 100ms ease;
+}
+
+.actividad-btn svg {
+    transition: all 0.5s ease;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.actividad-btn .play {
+    transition: all 0.5s ease;
+    transition-delay: 0ms;
+}
+
+.actividad-btn:hover svg {
+    transform: scale(2.2) translate(65%);
+}
+
+.actividad-btn .now {
+    position: absolute;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.actividad-btn:hover .now {
+    transform: translateX(14px);
+    transition-delay: 300ms;
+}
+
+.actividad-btn:hover .play {
+    transform: translateX(200%);
+    transition-delay: 0ms;
+}
+
+@media (max-width: 640px) {
+    .actividad-creativa-section { padding: 3.5rem 0; }
+    .actividad-creativa-desc { font-size: 0.97rem; }
+}
