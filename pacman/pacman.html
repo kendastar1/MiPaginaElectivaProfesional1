@@ -15,7 +15,7 @@
 		</script>
 		
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
 
 		<link rel="stylesheet" type="text/css" href="css/pacman.css" />
 		<link rel="stylesheet" type="text/css" href="css/pacman-home.css" />
@@ -97,7 +97,7 @@
 					e.stopPropagation();
 				});
 				
-				$("#home").on("click touchstart", function(e) { 
+				$("#home").on("click touchend", function(e) { 
 					if ( $('#help').css("display") === "none") { 
 						e.preventDefault();
 						simulateKeydown(13);
@@ -125,6 +125,22 @@
 				});
 
 				
+
+				// Boton "jugar de nuevo" de la pantalla de resultados
+				$("#results-start").on("click touchend", function(e) { 
+					e.preventDefault();
+					restartFromResults();
+				});
+
+				// Botones de movimiento del movil (abajo de la pantalla)
+				$("#pad-up").on("mousedown touchstart", function(e) { e.preventDefault(); simulateKeydown(38); simulateKeyup(13); });
+				$("#pad-down").on("mousedown touchstart", function(e) { e.preventDefault(); simulateKeydown(40); simulateKeyup(13); });
+				$("#pad-left").on("mousedown touchstart", function(e) { e.preventDefault(); simulateKeydown(37); simulateKeyup(13); });
+				$("#pad-right").on("mousedown touchstart", function(e) { e.preventDefault(); simulateKeydown(39); simulateKeyup(13); });
+
+				// Activa el sonido en el movil con el primer toque del usuario
+				bindAudioUnlock();
+
 				$("body").keyup(function(e) { 
 					KEYDOWN = false;
 				});
@@ -135,6 +151,9 @@
 						
 						initGame(true);
 						
+					} else if (GAMEOVER) { 
+						// Partida terminada: no se reinicia sola, solo con el boton "jugar de nuevo"
+						if (e.keyCode === 13 || e.keyCode === 32) restartFromResults();
 					} else { 				
 						//if (!KEYDOWN) { 
 							KEYDOWN = true;
@@ -212,6 +231,15 @@
 			<div id="home-start">start</div>
 		</div>
 
+		<div id="results">
+			<div id="results-title">game over</div>
+			<div id="results-sub">Resultados</div>
+			<div class="res-row res-score"><span class="res-l">Puntos</span><span class="res-v" id="res-score">0</span></div>
+			<div class="res-row res-ok"><span class="res-l">Correctas</span><span class="res-v" id="res-ok">0</span></div>
+			<div class="res-row res-bad"><span class="res-l">Incorrectas</span><span class="res-v" id="res-bad">0</span></div>
+			<div id="results-start">jugar de nuevo</div>
+		</div>
+
 		<div id="panel">
 			<h1>pac-man</h1>
 			<canvas id="canvas-panel-title-pacman"></canvas>
@@ -247,6 +275,18 @@
 			<a class="sound" href="javascript:void(0);" data-sound="on"><img src="img/sound-on.png" alt="" border="0"></a>
 		</div>
 	
+
+		<div id="pad">
+			<div class="pad-grp pad-h">
+				<button type="button" id="pad-left" class="pad-btn" aria-label="Izquierda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l9 14H3z"/></svg></button>
+				<button type="button" id="pad-right" class="pad-btn" aria-label="Derecha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l9 14H3z"/></svg></button>
+			</div>
+			<div class="pad-grp pad-v">
+				<button type="button" id="pad-up" class="pad-btn" aria-label="Arriba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l9 14H3z"/></svg></button>
+				<button type="button" id="pad-down" class="pad-btn" aria-label="Abajo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l9 14H3z"/></svg></button>
+			</div>
+		</div>
+
 	</body>
 	
 </html>
