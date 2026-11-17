@@ -173,53 +173,41 @@ function loadAllSound() {
 	initLoopWA(EAT_WA);
 }
 
+/* Cada punto que se come dispara su propio "waka" (se reinicia el sonido en cada punto).
+   Antes era un bucle: en el movil el bucle de <audio> se cortaba y se saltaba puntos. */
 function playEatingSound() { 
 	if (isAvailableSound()) { 
-		if ( !EATING_SOUND_LOOPING ) { 
-			EATING_SOUND_LOOPING = true;
-			initLoopWA(EAT_WA);
-			if ( !EAT_WA.failed ) { 
-				if ( EAT_WA.source ) { 
-					EAT_WA.source.loop = true; // aun terminaba el ciclo anterior: seguimos sin corte
-				} else if ( EAT_WA.ready ) { 
-					startEatingWA();
-				} else { 
-					EAT_WA.wantPlay = true; // arranca cuando termine de decodificar
-					EAT_WA.onReady = startEatingWA;
-				}
-			} else { 
-				EATING_SOUND.setSpeed(1.35);
-				EATING_SOUND.loop();
-				EATING_SOUND.play();
+		initLoopWA(EAT_WA);
+		if ( !EAT_WA.failed ) { 
+			if ( !EAT_WA.ready ) return;
+			if ( WA_CTX.state === "suspended" ) WA_CTX.resume();
+			// cortamos el anterior y arrancamos uno nuevo para este punto
+			if ( EAT_WA.source ) { 
+				var old = EAT_WA.source;
+				EAT_WA.source = null;
+				old.onended = null;
+				try { old.stop(0); } catch (e) {}
+				try { old.disconnect(); } catch (e) {}
 			}
+			var src = WA_CTX.createBufferSource();
+			src.buffer = EAT_WA.buffer;
+			src.playbackRate.value = EAT_WA.rate;
+			src.connect(EAT_WA.gain);
+			src.onended = function() { 
+				if ( EAT_WA.source === src ) EAT_WA.source = null;
+				try { src.disconnect(); } catch (e) {}
+			};
+			src.start(0);
+			EAT_WA.source = src;
+		} else { 
+			EATING_SOUND.stop();
+			EATING_SOUND.setSpeed(1.35);
+			EATING_SOUND.play();
 		}
 	}
-}
-function startEatingWA() { 
-	if ( !EAT_WA.ready || EAT_WA.source || !EATING_SOUND_LOOPING ) return;
-	if ( WA_CTX.state === "suspended" ) WA_CTX.resume();
-	var src = WA_CTX.createBufferSource();
-	src.buffer = EAT_WA.buffer;
-	src.loop = true;
-	src.playbackRate.value = EAT_WA.rate;
-	src.connect(EAT_WA.gain);
-	src.onended = function() { 
-		if ( EAT_WA.source === src ) EAT_WA.source = null;
-		try { src.disconnect(); } catch (e) {}
-	};
-	src.start(0);
-	EAT_WA.source = src;
 }
 function stopEatingSound() { 
-	if (isAvailableSound()) { 
-		if ( EATING_SOUND_LOOPING ) { 
-			// termina el ciclo actual y se detiene (como unloop() en PC)
-			if ( EAT_WA.source ) EAT_WA.source.loop = false;
-			EAT_WA.wantPlay = false;
-			EATING_SOUND.unloop();
-			EATING_SOUND_LOOPING = false;
-		}
-	}
+	// nada: cada "waka" termina solo
 }
 function killEatingWA() { 
 	EAT_WA.wantPlay = false;
