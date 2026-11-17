@@ -57,6 +57,8 @@ function initHome() {
 
 	$("#panel").hide();
 	$("#home").show();
+	$("html").removeClass("in-game");
+	if (typeof hideResults === "function") hideResults();
 	
 	$('#help').fadeOut("slow");
 	

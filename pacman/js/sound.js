@@ -102,7 +102,60 @@ function setSirenMuted(muted) {
 var EATING_SOUND_LOOPING = false;
 
 function isAvailableSound() { 
-	return !($("#sound").css("display") === "none");
+	// Antes se ocultaba el sonido en pantallas pequenas (movil). Ahora siempre esta disponible;
+	// el usuario lo silencia con el boton de la bocina.
+	return true;
+}
+
+/* ---------- Desbloqueo de audio en el movil ----------
+   Los navegadores moviles (Chrome Android, Safari iOS) bloquean el audio hasta que el usuario
+   toca la pantalla. En el primer toque reanudamos el AudioContext y "activamos" cada elemento
+   de audio con una reproduccion silenciosa, para que luego suenen cuando el juego lo pida. */
+var AUDIO_UNLOCKED = false;
+var ALL_SOUNDS = [ EATING_SOUND, GHOST_EATEN_SOUND, EXTRA_LIFE_SOUND, EAT_PILL_SOUND, EAT_FRUIT_SOUND, EAT_GHOST_SOUND, SIREN_SOUND, WAZA_SOUND, READY_SOUND, DIE_SOUND ];
+
+function unlockAudio() { 
+	if ( AUDIO_UNLOCKED ) return;
+	AUDIO_UNLOCKED = true;
+	try { 
+		initSirenWA();
+		initWazaWA();
+		if ( WA_CTX ) { 
+			if ( WA_CTX.state === "suspended" ) WA_CTX.resume();
+			// sonido vacio para terminar de activar el contexto en iOS
+			var b = WA_CTX.createBuffer(1, 1, 22050);
+			var src = WA_CTX.createBufferSource();
+			src.buffer = b;
+			src.connect(WA_CTX.destination);
+			src.start(0);
+		}
+	} catch (e) {}
+	for ( var i = 0; i < ALL_SOUNDS.length; i++ ) { 
+		(function(a) { 
+			if ( !a || !a.paused ) return; // si ya esta sonando no lo tocamos
+			var wasMuted = a.muted;
+			try { 
+				a.muted = true;
+				var p = a.play();
+				var done = function() { 
+					try { a.pause(); a.currentTime = 0; } catch (e) {}
+					a.muted = wasMuted;
+				};
+				if ( p && p.then ) { p.then(done, function() { a.muted = wasMuted; }); } else { done(); }
+			} catch (e) { a.muted = wasMuted; }
+		})(ALL_SOUNDS[i].sound);
+	}
+	// si la sirena o el sonido azul ya estaban pedidos, que arranquen
+	if ( WA_CTX && WA_CTX.state === "suspended" ) WA_CTX.resume();
+}
+
+function bindAudioUnlock() { 
+	var evs = ["touchend", "click", "mousedown", "keydown"];
+	var handler = function() { 
+		unlockAudio();
+		for ( var i = 0; i < evs.length; i++ ) document.removeEventListener(evs[i], handler, true);
+	};
+	for ( var i = 0; i < evs.length; i++ ) document.addEventListener(evs[i], handler, true);
 }
 
 function loadAllSound() { 

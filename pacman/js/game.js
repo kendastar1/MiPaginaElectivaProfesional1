@@ -49,6 +49,7 @@ function initGame(newgame) {
 		clearMessage();
 		$("#home").hide();
 		$("#panel").show();
+		$("html").addClass("in-game");
 		
 		var ctx = null;
 		var canvas = document.getElementById('canvas-panel-title-pacman');
@@ -112,8 +113,12 @@ function win() {
 	
 	eraseGhosts();
 
+	// Se comio el ultimo punto del tablero (la fruta es opcional): la partida termina.
+	// Primero parpadean las paredes en blanco (prepareNextLevel) y despues salen los resultados.
+	FINAL_SCORE = SCORE;
+	GAMEOVER = true;
+	clearMessage();
 	setTimeout("prepareNextLevel()", 1000);
-
 }
 function prepareNextLevel(i) { 
 	if ( LEVEL_NEXT_TIMER === -1 ) { 
@@ -127,7 +132,9 @@ function prepareNextLevel(i) {
 			LEVEL_NEXT_STATE = 0;
 			clearInterval(LEVEL_NEXT_TIMER);
 			LEVEL_NEXT_TIMER = -1;
-			nextLevel();
+			// En vez de pasar al siguiente nivel, se muestran los resultados
+			if ( RESULTS_TIMER !== -1 ) clearTimeout(RESULTS_TIMER);
+			RESULTS_TIMER = setTimeout(function() { showResults(true); }, 500);
 		}
 	}
 }
@@ -292,9 +299,61 @@ function lifes(l) {
 	}
 }
 
+/* ---------- Pantalla de resultados (al terminar la partida) ---------- */
+var FINAL_SCORE = 0;
+var RESULTS_OPEN = false;
+var RESULTS_TIMER = -1;
+
+function showResults(won) { 
+	RESULTS_TIMER = -1;
+	var ok = QUIZ_CORRECT;
+	var bad = Math.max(0, QUIZ_TOTAL - QUIZ_CORRECT);
+	$("#results-title").text(won ? "ganaste!" : "game over").toggleClass("win", !!won);
+	$("#res-score").text(FINAL_SCORE);
+	$("#res-ok").text(ok);
+	$("#res-bad").text(bad);
+	clearMessage();
+	$("html").removeClass("in-game");
+	RESULTS_OPEN = true;
+	$("#results").show();
+}
+function hideResults() { 
+	if ( RESULTS_TIMER !== -1 ) { clearTimeout(RESULTS_TIMER); RESULTS_TIMER = -1; }
+	RESULTS_OPEN = false;
+	$("#results").hide();
+}
+function restartFromResults() { 
+	if ( !RESULTS_OPEN ) return;
+	hideResults();
+	// Dejar todo como al inicio de la primera partida (posiciones, estados y temporizadores)
+	stopAllSound();
+	stopTimes();
+	stopBlinkSuperBubbles();
+	erasePacman();
+	eraseGhosts();
+	resetPacman();
+	resetGhosts();
+	PAUSE = false;
+	LOCK = false;
+	PACMAN_DEAD = false;
+	GAMEOVER = false;
+	SCORE = 0;
+	LIFES = 2;
+	LEVEL = 1;
+	TIME_GAME = 0;
+	TIME_LEVEL = 0;
+	TIME_LIFE = 0;
+	TIME_FRUITS = 0;
+	initGame(true);
+}
+
 function gameover() { 
+	FINAL_SCORE = SCORE;
 	GAMEOVER = true;
 	message("game over");
+	// Muestra "GAME OVER" un momento y luego la pantalla de resultados
+	if ( RESULTS_TIMER !== -1 ) clearTimeout(RESULTS_TIMER);
+	RESULTS_TIMER = setTimeout(showResults, 1800);
 	stopTimes();
 
 	erasePacman();
