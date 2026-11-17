@@ -98,7 +98,7 @@ span.combo, span.fruits {
 	font-weight: normal;
 }
 
-#panel, #home { 
+#panel, #home, #results { 
 	width: 550px;
 	height: 690px;
 	margin: auto;
@@ -371,7 +371,7 @@ h3 {
 
 
 @media screen and (min-height:1200px), screen and (min-device-height : 1200px) { 
-	#panel, #home { 
+	#panel, #home, #results { 
 		zoom: 135%;
 	}
 }
@@ -380,7 +380,7 @@ h3 {
 	#home .help-button, #panel .help-button, #home .github, #sound, .sound { 
 		display: none;
 	}
-	#panel, #home { 
+	#panel, #home, #results { 
 		zoom: 105%;
 	}
 	#control-up-big, #control-down-big, #control-left-big, #control-right-big { 
@@ -389,7 +389,7 @@ h3 {
 
 }
 @media screen and (max-height:640px), screen and (min-device-height : 480px) and (max-device-height : 640px) and (-webkit-device-pixel-ratio: 3) { 
-	#panel, #home { 
+	#panel, #home, #results { 
 		zoom: 60%;
 	}
 	#control-up-big, #control-down-big, #control-left-big, #control-right-big { 
@@ -403,7 +403,7 @@ h3 {
 	}
 }
 @media screen and (max-height:480px), screen and (min-device-height : 320px) and (max-device-height : 480px) { 
-	#panel, #home { 
+	#panel, #home, #results { 
 		zoom: 55%;
 	}
 	#control-up-big, #control-down-big, #control-left-big, #control-right-big { 
@@ -578,7 +578,7 @@ h3 {
    --s lo calcula js/fit.js segun el tamano de la ventana */
 @media screen and (min-width:1025px) and (min-height:641px) { 
 	html, body { overflow: hidden; }
-	#panel, #home { 
+	#panel, #home, #results { 
 		zoom: 1;
 		top: 50%;
 		left: 50%;
@@ -628,4 +628,272 @@ h3 {
 #quiz-stats #quiz-total { color: #fff200; }
 @media screen and (max-height:480px), screen and (min-device-height : 320px) and (max-device-height : 480px) { 
 	#quiz-stats { top: 0px; }
+}
+
+
+/* =====================================================================
+   MOVIL / PANTALLAS PEQUENAS
+   js/fit.js agrega la clase "mobile" al <html> y calcula:
+     --s      escala del juego para que quepa en la pantalla
+     --avail  alto disponible para el juego (sin la zona de botones)
+     --pad-h  alto de la zona de botones (solo en vertical)
+   Estas reglas reemplazan a los antiguos "zoom" de los media queries.
+   ===================================================================== */
+
+/* Los botones de movimiento solo existen en movil */
+#pad { display: none; }
+
+html.mobile, html.mobile body { 
+	overflow: hidden;
+	overscroll-behavior: none;
+	-webkit-text-size-adjust: 100%;
+}
+html.mobile body { 
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* Menu y juego: se escalan y se centran en el espacio disponible */
+html.mobile #panel, html.mobile #home, html.mobile #results { 
+	zoom: 1;
+	position: fixed;
+	top: calc(var(--avail, 100vh) / 2);
+	left: 50%;
+	right: auto;
+	margin: 0px;
+	transform: translate(-50%, -50%) scale(var(--s, 1));
+	transform-origin: center center;
+}
+html.mobile #help { 
+	top: 50%;
+	left: 50%;
+	right: auto;
+	margin: 0px;
+	transform: translate(-50%, -50%) scale(var(--s, 1));
+	transform-origin: center center;
+}
+
+/* Fuera los controles viejos (los gigantes transparentes y la barra gris) */
+html.mobile #control, 
+html.mobile #control-up-big, html.mobile #control-down-big, 
+html.mobile #control-left-big, html.mobile #control-right-big { 
+	display: none !important;
+}
+
+/* Titulo y boton de sonido visibles (los media queries viejos los ocultaban) */
+html.mobile h1 { display: block; visibility: visible; }
+html.mobile #canvas-panel-title-pacman { display: block; visibility: visible; }
+html.mobile #home h1 { visibility: visible; }
+html.mobile #score, html.mobile #highscore, html.mobile #quiz-stats { top: 70px; }
+html.mobile #panel { padding-top: 5px; }
+html.mobile #canvas-lifes, html.mobile #canvas-level-fruits { top: 670px; }
+html.mobile #message { top: 413px; }
+html.mobile #panel .sound, html.mobile #home .sound { 
+	display: block;
+	z-index: 111112;
+	padding: 4px;
+}
+html.mobile .sound img { height: 36px; }
+html.mobile #home .sound { bottom: 10px; right: 10px; }
+html.mobile #panel .sound { top: 66px; right: 2px; }
+
+/* ---- Botones de movimiento ---- */
+html.mobile.in-game #pad { 
+	display: block;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1000;
+	pointer-events: none;
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pad-btn { 
+	pointer-events: auto;
+	box-sizing: border-box;
+	width: 72px;
+	height: 72px;
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(25, 63, 255, 0.25);
+	border: solid 3px #193fff;
+	border-radius: 16px;
+	box-shadow: 0 0 10px rgba(25, 63, 255, 0.5);
+	cursor: pointer;
+	outline: none;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select: none;
+	user-select: none;
+}
+.pad-btn svg { 
+	width: 38px;
+	height: 38px;
+	fill: #fff200;
+	pointer-events: none;
+}
+.pad-btn:active { 
+	background-color: rgba(255, 242, 0, 0.35);
+	border-color: #fff200;
+}
+#pad-down svg  { transform: rotate(180deg); }
+#pad-left svg  { transform: rotate(-90deg); }
+#pad-right svg { transform: rotate(90deg); }
+
+/* Vertical: cruz de botones centrada abajo ( arriba / izquierda-abajo-derecha ) */
+html.mobile:not(.land) #pad .pad-grp { display: contents; }
+html.mobile:not(.land) #pad { 
+	height: var(--pad-h, 160px);
+	box-sizing: border-box;
+}
+html.mobile:not(.land).in-game #pad { 
+	display: grid;
+	grid-template-columns: repeat(3, 72px);
+	grid-template-rows: repeat(2, 72px);
+	grid-template-areas: ". up ." "left down right";
+	gap: 8px;
+	justify-content: center;
+	align-content: center;
+}
+html.mobile:not(.land) #pad-up    { grid-area: up; }
+html.mobile:not(.land) #pad-down  { grid-area: down; }
+html.mobile:not(.land) #pad-left  { grid-area: left; }
+html.mobile:not(.land) #pad-right { grid-area: right; }
+
+/* Horizontal: izquierda/derecha a la izquierda, arriba/abajo a la derecha */
+html.mobile.land .pad-grp { 
+	position: fixed;
+	bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+	display: flex;
+	gap: 10px;
+	pointer-events: none;
+}
+html.mobile.land .pad-h { left: calc(14px + env(safe-area-inset-left, 0px)); flex-direction: row; }
+html.mobile.land .pad-v { right: calc(14px + env(safe-area-inset-right, 0px)); flex-direction: column; }
+html.mobile.land .pad-btn { width: 64px; height: 64px; }
+
+
+/* =====================================================================
+   PANTALLA DE RESULTADOS (fin de la partida) - letras estilo pixel
+   Usa la misma caja, escala y centrado que #home (ver reglas de arriba).
+   ===================================================================== */
+#results { 
+	display: none;
+	z-index: 5000;
+	user-select: none;
+	-webkit-font-smoothing: none;
+	font-smooth: never;
+}
+#results-title { 
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 130px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 64px;
+	letter-spacing: 4px;
+	color: #ed1b24;
+	text-shadow: 3px 3px 0 #fff200, 6px 6px 0 #193fff;
+}
+#results-sub { 
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 240px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 26px;
+	letter-spacing: 4px;
+	color: #4adecb;
+	text-shadow: 2px 2px 0 #193fff;
+}
+#results .res-row { 
+	position: absolute;
+	left: 50px;
+	right: 50px;
+	height: 40px;
+	line-height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 18px;
+	box-sizing: border-box;
+	border: solid 3px #193fff;
+	border-radius: 6px;
+	background-color: #000;
+	text-transform: uppercase;
+}
+#results .res-score { top: 300px; }
+#results .res-ok    { top: 360px; }
+#results .res-bad   { top: 420px; }
+#results .res-l, #results .res-v { 
+	font-size: 26px;
+	letter-spacing: 3px;
+	text-shadow: 2px 2px 0 #193fff;
+}
+#results .res-l { color: #fff; }
+#results .res-score .res-v { color: #fff200; }
+#results .res-ok .res-v    { color: #3be03b; }
+#results .res-bad .res-v   { color: #ed1b24; }
+#results-start { 
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 520px;
+	text-align: center;
+	font-size: 32px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	color: #fff200;
+	text-shadow: 2px 2px 0 #ed1b24, 4px 4px 0 #193fff;
+	cursor: pointer;
+	padding: 16px 0px;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	animation: home-start-blink 1s steps(1) infinite;
+}
+
+#results-title.win { 
+	color: #3be03b;
+	text-shadow: 3px 3px 0 #fff200, 6px 6px 0 #193fff;
+}
+
+
+/* =====================================================================
+   TARJETA DE PREGUNTA: centrada en la pantalla (movil y escritorio)
+   Antes tenia un margin-top fijo en pantallas pequenas que la pegaba arriba.
+   ===================================================================== */
+#quiz { 
+	box-sizing: border-box;
+	padding: 12px;
+	padding-top: calc(12px + env(safe-area-inset-top, 0px));
+	padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+	-webkit-overflow-scrolling: touch;
+}
+#quiz #quiz-box { 
+	margin: auto;      /* centra en vertical y horizontal; si es mas alta que la pantalla, se desplaza */
+	max-width: 100%;
+}
+/* Pantallas bajas (celular horizontal): tarjeta mas compacta para que quepa completa */
+@media screen and (max-height: 520px) { 
+	#quiz { padding-top: 8px; padding-bottom: 8px; }
+	#quiz #quiz-box { padding: 8px 14px 10px 14px; width: 560px; }
+	#quiz h2 { font-size: 18px; margin-bottom: 6px; letter-spacing: 2px; }
+	#quiz .quiz-q { font-size: 13px; margin-bottom: 8px; padding-bottom: 8px; }
+	#quiz .quiz-option { margin-bottom: 5px; padding: 5px 10px; gap: 10px; }
+	#quiz .quiz-option b { flex: 0 0 24px; height: 24px; line-height: 24px; font-size: 14px; }
+	#quiz .quiz-option span { font-size: 12px; }
+	#quiz .quiz-result { min-height: 30px; margin-top: 2px; font-size: 15px; }
+	#quiz .quiz-result small { font-size: 11px; }
 }
