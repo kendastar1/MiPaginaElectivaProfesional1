@@ -132,7 +132,7 @@ function unlockAudio() {
 	} catch (e) {}
 	for ( var i = 0; i < ALL_SOUNDS.length; i++ ) { 
 		(function(a) { 
-			if ( !a || !a.paused || a === READY_SOUND.sound ) return; // si ya esta sonando (o es la musica de inicio) no lo tocamos
+			if ( !a || !a.paused ) return; // si ya esta sonando no lo tocamos
 			var wasMuted = a.muted;
 			try { 
 				a.muted = true;
@@ -271,19 +271,7 @@ function stopSirenSound() {
 
 function playReadySound() { 
 	if (isAvailableSound()) { 
-		try { if ( WA_CTX && WA_CTX.state === "suspended" ) WA_CTX.resume(); } catch (e) {}
-		READY_SOUND.stop();
 		READY_SOUND.play();
-		// Primera visita en el movil: si el navegador aun no dejaba sonar (audio bloqueado o
-		// sin cargar), reintentamos unas veces mientras dura la pantalla "READY!"
-		var tries = 0;
-		var retry = function() { 
-			tries++;
-			if ( tries > 12 || READY_SOUND.getTime() > 0.2 ) return;
-			if ( READY_SOUND.isPaused() ) READY_SOUND.play();
-			setTimeout(retry, 250);
-		};
-		setTimeout(retry, 250);
 	}
 }
 
