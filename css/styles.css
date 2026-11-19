@@ -3767,3 +3767,17 @@ img, svg, video { max-width: 100%; }
 @media (min-width: 900px) {
     .video-hero { padding-top: 6rem; }
 }
+
+/* Opciones del menú aún no desbloqueadas */
+.nav-hidden { display: none !important; }
+
+/* Animación de aparición de cada opción del menú */
+@keyframes navReveal {
+    0%   { opacity: 0; transform: translateY(-14px) scale(.85); filter: blur(3px); }
+    60%  { opacity: 1; transform: translateY(2px) scale(1.06); filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nav-reveal { animation: navReveal .65s cubic-bezier(.22,1,.36,1) both; }
+.nav-links > li.nav-reveal > a { animation: navGlow 1.2s ease-out 1; }
+@keyframes navGlow { 0% { text-shadow: 0 0 0 transparent; } 35% { text-shadow: 0 0 12px rgba(34,160,80,.55); } 100% { text-shadow: 0 0 0 transparent; } }
+@media (prefers-reduced-motion: reduce) { .nav-reveal, .nav-links > li.nav-reveal > a { animation: none; } }
