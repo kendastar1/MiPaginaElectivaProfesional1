@@ -200,13 +200,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateActiveNav() {
         if (Date.now() < navLockUntil) return;
-        const y = window.scrollY + 140;
+        // La sección cuenta como actual cuando su parte superior ya pasó la mitad de la pantalla.
+        const y = window.scrollY + window.innerHeight * 0.5;
         let current = '#inicio';
         navTargets.forEach(id => {
             const el = document.querySelector(id);
             if (el && !el.classList.contains('ova-locked') && el.getBoundingClientRect().top + window.scrollY <= y) current = id;
         });
         const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        if (atBottom) {
+            // Al final de la página la sección nueva puede no llegar arriba del todo:
+            // se marca como activa la última sección desbloqueada.
+            navTargets.forEach(id => {
+                const el = document.querySelector(id);
+                if (el && !el.classList.contains('ova-locked')) current = id;
+            });
+        }
         const footerEl = document.querySelector('#contacto');
         if (atBottom && footerEl && !footerEl.classList.contains('ova-locked')) current = '#contacto';
         setActiveNav(current);
@@ -538,6 +547,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function applyLocks() {
         stages.forEach((els, i) => els.forEach(el => el.classList.toggle('ova-locked', i > unlocked)));
+        updateNavVisibility();
+    }
+
+    // El menú (escritorio y móvil) solo muestra las secciones ya desbloqueadas:
+    // al inicio solo "Inicio"; cada vez que se pulsa "Siguiente" aparece la sección nueva.
+    let navReady = false;
+    function updateNavVisibility() {
+        const hideIf = (el, locked) => {
+            if (!el) return;
+            const wasHidden = el.classList.contains('nav-hidden');
+            el.classList.toggle('nav-hidden', locked);
+            // Animación al aparecer una opción nueva (no en la carga inicial).
+            if (wasHidden && !locked && navReady) {
+                el.classList.remove('nav-reveal');
+                void el.offsetWidth;
+                el.classList.add('nav-reveal');
+                el.addEventListener('animationend', function f() { el.classList.remove('nav-reveal'); el.removeEventListener('animationend', f); });
+            }
+        };
+        document.querySelectorAll('.nav-links a[href^="#"], .mobile-menu a[href^="#"]').forEach(a => {
+            const locked = stageIndexOf(a.getAttribute('href')) > unlocked;
+            hideIf(a.closest('li') || a, locked);
+        });
+        document.querySelectorAll('.nav-dd-toggle, .mm-toggle').forEach(t => {
+            const first = (t.dataset.children || '').split(',')[0];
+            const locked = first ? stageIndexOf(first) > unlocked : false;
+            hideIf(t.closest('.nav-dropdown') || t.closest('.mm-group'), locked);
+        });
     }
 
     function stageIndexOf(selector) {
@@ -593,6 +630,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const next = Math.min(cur + 1, last);
         unlockTo(next);
         setBtn(false);
+        // Al terminar el desplazamiento se recalcula la opción activa del menú.
+        [400, 1000, 1500].forEach(t => setTimeout(() => window.dispatchEvent(new Event('resize')), t));
         stages[next][0].scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
@@ -618,6 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (i > 0) unlocked = i;
     }
     applyLocks();
+    navReady = true;
 
     // ----- Barra de progreso (debajo del menú) -----
     // La barra no se muestra mientras se desplaza: aparece solo cuando se completa
