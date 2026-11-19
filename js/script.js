@@ -204,10 +204,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '#inicio';
         navTargets.forEach(id => {
             const el = document.querySelector(id);
-            if (el && el.getBoundingClientRect().top + window.scrollY <= y) current = id;
+            if (el && !el.classList.contains('ova-locked') && el.getBoundingClientRect().top + window.scrollY <= y) current = id;
         });
         const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-        if (atBottom) current = '#contacto';
+        const footerEl = document.querySelector('#contacto');
+        if (atBottom && footerEl && !footerEl.classList.contains('ova-locked')) current = '#contacto';
         setActiveNav(current);
     }
 
@@ -501,4 +502,271 @@ document.addEventListener('DOMContentLoaded', function() {
     io.observe(section);
 
     setTimeout(play, 4000);
+})();
+
+
+/* ===== Secciones por etapas + botón "Siguiente" =====
+   Cada etapa se muestra completa; la siguiente permanece oculta (y por lo tanto
+   no se puede bajar a ella) hasta que se pulsa "Siguiente" al llegar al final. */
+(function () {
+    const STAGES = [
+        ['#inicio', '.quick-cards'],
+        ['#caracteristicas'],
+        ['#beneficios'],
+        ['#como-funciona'],
+        ['#integracion'],
+        ['#para-empresas'],
+        ['#conceptos'],
+        ['#estrategia'],
+        ['#modelos-negocio'],
+        ['#actividad-ova'],
+        ['#desarrolladores', '#contacto']
+    ];
+    // true: los enlaces del menú / tarjetas rápidas desbloquean hasta su destino.
+    // false: solo se avanza con el botón "Siguiente".
+    const ALLOW_MENU_JUMPS = true;
+
+    const btn = document.getElementById('nextSectionBtn');
+    if (!btn) return;
+
+    const stages = STAGES
+        .map(sels => sels.map(s => document.querySelector(s)).filter(Boolean))
+        .filter(els => els.length);
+    const last = stages.length - 1;
+    let unlocked = 0;
+    let suppressUntil = 0;   // durante un salto desde el menú no se evalúa el progreso (no suma secciones intermedias)
+
+    function applyLocks() {
+        stages.forEach((els, i) => els.forEach(el => el.classList.toggle('ova-locked', i > unlocked)));
+    }
+
+    function stageIndexOf(selector) {
+        const target = document.querySelector(selector);
+        if (!target) return -1;
+        return stages.findIndex(els => els.some(el => el === target || el.contains(target)));
+    }
+
+    function unlockTo(i) {
+        if (i > unlocked) { unlocked = Math.min(i, last); applyLocks(); }
+    }
+
+    function stageBounds(i) {
+        const els = stages[i];
+        const first = els[0].getBoundingClientRect();
+        const lastR = els[els.length - 1].getBoundingClientRect();
+        return { top: first.top + window.scrollY, bottom: lastR.bottom + window.scrollY };
+    }
+
+    function setBtn(show) {
+        btn.classList.toggle('show', show);
+        btn.setAttribute('aria-hidden', show ? 'false' : 'true');
+        btn.tabIndex = show ? 0 : -1;
+    }
+
+    function update() {
+        updateProgress();
+        const vb = window.scrollY + window.innerHeight;     // borde inferior de la pantalla
+        let show = false;
+        for (let i = 0; i < last; i++) {
+            if (i > unlocked) break;
+            const b = stageBounds(i);
+            // Se muestra solo cuando el final de la etapa está en el borde inferior de la pantalla.
+            if (vb >= b.bottom - 8 && vb <= b.bottom + 8 && window.scrollY + 1 < b.bottom) { show = true; break; }
+        }
+        setBtn(show);
+    }
+
+    let tick = false;
+    function schedule() {
+        if (tick) return;
+        tick = true;
+        requestAnimationFrame(() => { tick = false; update(); });
+    }
+
+    function goNext() {
+        const vb = window.scrollY + window.innerHeight;
+        let cur = 0;
+        for (let i = 0; i < last; i++) {
+            if (i > unlocked) break;
+            if (vb >= stageBounds(i).bottom - 8) cur = i;
+        }
+        const next = Math.min(cur + 1, last);
+        unlockTo(next);
+        setBtn(false);
+        stages[next][0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    btn.addEventListener('click', goNext);
+
+    // Enlaces internos (menú, tarjetas rápidas): desbloquean hasta su destino antes de desplazarse.
+    document.addEventListener('click', function (e) {
+        const a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a || !ALLOW_MENU_JUMPS) return;
+        const href = a.getAttribute('href');
+        if (!href || href.length < 2) return;
+        const i = stageIndexOf(href);
+        if (i > -1) {
+            unlockTo(i);
+            suppressUntil = Date.now() + 1300;
+            setTimeout(update, 1350);
+        }
+    }, true);
+
+    // Si se abre la página con un #hash, desbloquea hasta ese punto.
+    if (ALLOW_MENU_JUMPS && location.hash.length > 1) {
+        const i = stageIndexOf(location.hash);
+        if (i > 0) unlocked = i;
+    }
+    applyLocks();
+
+    // ----- Barra de progreso (debajo del menú) -----
+    // La barra no se muestra mientras se desplaza: aparece solo cuando se completa
+    // una sección y se oculta sola pasado este tiempo (en milisegundos).
+    const PROGRESS_VISIBLE_MS = 3000;
+    // true: también se muestra al entrar (bajar) a cada sección nueva, además de al terminarla.
+    const SHOW_PROGRESS_ON_ENTER = true;
+    const STAGE_NAMES = ['Inicio', 'Introducción', 'Metodologías', 'Objetivos',
+        '¿Qué es la transformación?', '¿Por qué se transforman?', 'Digital vs. Digitalización',
+        'Estrategia', 'Modelos de negocio', 'Actividad OVA', 'Desarrolladores'];
+    const navEl = document.getElementById('mainNav');
+    let bar = null, fill = null, countEl = null, hideTimer = 0, manualOpen = false;
+    const completed = new Set();   // secciones terminadas (se llega al final de la sección)
+
+    let wrap = null;
+
+    if (navEl) {
+        wrap = document.createElement('div');
+        wrap.className = 'ova-progress-wrap';
+        wrap.innerHTML =
+            '<button type="button" class="ova-toggle" aria-label="Ver progreso" aria-expanded="false" title="Ver progreso">' +
+                '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>' +
+            '</button>' +
+            '<div class="ova-progress-panel">' +
+                '<button type="button" class="ova-close" aria-label="Cerrar progreso" title="Cerrar">' +
+                    '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>' +
+                '</button>' +
+                '<div class="ova-progress" role="progressbar" aria-valuemin="0" aria-valuemax="' + stages.length + '">' +
+                    '<span class="ova-progress-track"><span class="ova-progress-fill"></span></span>' +
+                    '<span class="ova-progress-count"></span>' +
+                '</div>' +
+            '</div>';
+        bar = wrap.querySelector('.ova-progress');
+        fill = wrap.querySelector('.ova-progress-fill');
+        countEl = wrap.querySelector('.ova-progress-count');
+        navEl.appendChild(wrap);
+
+        const toggleBtn = wrap.querySelector('.ova-toggle');
+        const closeBtn = wrap.querySelector('.ova-close');
+        // La flechita muestra el progreso y lo deja abierto hasta que se pulse la X.
+        toggleBtn.addEventListener('click', () => openProgress(false));
+        closeBtn.addEventListener('click', closeProgress);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProgress(); });
+    }
+
+    function renderProgress(animate) {
+        const n = completed.size;
+        fill.style.setProperty('--p', (n / stages.length).toFixed(3));
+        countEl.textContent = n + '/' + stages.length;
+        bar.setAttribute('aria-valuenow', n);
+        const txt = 'Progreso: ' + n + ' de ' + stages.length + ' secciones completadas';
+        bar.setAttribute('aria-label', txt);
+        bar.title = txt;
+        if (animate) {
+            countEl.classList.remove('bump');
+            void countEl.offsetWidth;
+            countEl.classList.add('bump');
+        }
+    }
+
+    // Se muestra el progreso (3 s) solo la primera vez que se llega al final de cada sección.
+    // Una sección solo suma al progreso la primera vez que se llega a su final.
+    let lastEndIdx = -2;
+    let lastCurIdx = -1;
+    const enterShown = new Set();   // secciones cuyo progreso ya se mostró al entrar
+
+    function updateProgress() {
+        if (!bar) return;
+        if (!countEl.textContent) renderProgress(false);
+        if (Date.now() < suppressUntil) return;
+        const vb = window.scrollY + window.innerHeight;
+
+        // Al bajar por primera vez a una sección nueva se muestra el progreso (3 s).
+        if (SHOW_PROGRESS_ON_ENTER) {
+            const anchor = window.scrollY + 140;
+            let cur = 0;
+            for (let i = 0; i <= unlocked; i++) { if (stageBounds(i).top <= anchor) cur = i; }
+            if (lastCurIdx < 0) lastCurIdx = cur;
+            else if (cur > lastCurIdx) {
+                lastCurIdx = cur;
+                if (!enterShown.has(cur)) { enterShown.add(cur); flashProgress(); }   // solo la primera vez
+            }
+            else if (cur < lastCurIdx) lastCurIdx = cur;
+        }
+
+        let endIdx = -1;
+        for (let i = 0; i <= unlocked; i++) {
+            const bt = stageBounds(i).bottom;
+            if (vb >= bt - 8 && vb <= bt + 8) { endIdx = i; break; }
+        }
+        if (endIdx === lastEndIdx) return;
+        lastEndIdx = endIdx;
+        if (endIdx < 0) return;
+        const isNew = !completed.has(endIdx);
+        completed.add(endIdx);
+        if (!isNew) return;          // ya se mostró al terminar esta sección: no repetir
+        renderProgress(true);
+        flashProgress();
+    }
+
+    function openProgress(autoHide) {
+        if (!wrap) return;
+        renderProgress(false);
+        wrap.classList.add('open');
+        wrap.querySelector('.ova-toggle').setAttribute('aria-expanded', 'true');
+        clearTimeout(hideTimer);
+        if (!autoHide) { manualOpen = true; return; }
+        // Si el usuario la abrió con la flechita, se queda abierta hasta que pulse la X.
+        if (!manualOpen) hideTimer = setTimeout(closeProgress, PROGRESS_VISIBLE_MS);
+    }
+
+    function closeProgress() {
+        if (!wrap) return;
+        clearTimeout(hideTimer);
+        manualOpen = false;
+        wrap.classList.remove('open');
+        wrap.querySelector('.ova-toggle').setAttribute('aria-expanded', 'false');
+    }
+
+    function flashProgress() { openProgress(true); }
+
+    // Deja espacio libre al final de cada etapa (menos la última) para el botón flotante.
+    function reserveButtonSpace() {
+        const space = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--next-btn-space')) || 96;
+        stages.forEach((els, i) => {
+            if (i === last) return;
+            const el = els[els.length - 1];
+            el.style.paddingBottom = '';
+            // Metodologías: la tarjeta verde debe quedar pegada al borde inferior de la sección,
+            // así que el espacio para el botón se suma dentro de la tarjeta (más verde), no fuera.
+            const box = el.classList.contains('video-hero') ? el.querySelector('.video-hero-box') : null;
+            if (box) {
+                box.style.paddingBottom = '';
+                const bBase = parseFloat(getComputedStyle(box).paddingBottom) || 0;
+                box.style.paddingBottom = Math.max(bBase, space) + 'px';
+                return;
+            }
+            const base = parseFloat(getComputedStyle(el).paddingBottom) || 0;
+            el.style.paddingBottom = (base + space) + 'px';
+        });
+        schedule();
+    }
+    reserveButtonSpace();
+    window.addEventListener('resize', reserveButtonSpace);
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    window.addEventListener('load', update);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);
+    if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.body);
+    update();
 })();
